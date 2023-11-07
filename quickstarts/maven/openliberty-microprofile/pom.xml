@@ -35,7 +35,7 @@
     <jkube.version>${project.version}</jkube.version>
     <version.openliberty>19.0.0.9</version.openliberty>
     <version.microprofile>3.3</version.microprofile>
-    <version.jaeger-client>0.34.0</version.jaeger-client>
+    <version.jaeger-client>0.35.5</version.jaeger-client>
     <version.openliberty-maven>3.2</version.openliberty-maven>
     <http.port>9080</http.port>
     <https.port>9443</https.port>
