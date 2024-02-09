@@ -31,7 +31,7 @@
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <jkube.version>${project.version}</jkube.version>
+    <jkube.version>1.16.0</jkube.version>
   </properties>
   <dependencies>
     <dependency>
