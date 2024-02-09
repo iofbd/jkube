@@ -29,7 +29,7 @@
     <name>Gradle Plugin :: Integration Tests</name>
 
     <properties>
-        <jkube.kit.version>${project.version}</jkube.kit.version>
+        <jkube.kit.version>1.16.0</jkube.kit.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
