@@ -30,7 +30,7 @@
   <description>Maven plugin for getting your Java apps on to OpenShift</description>
 
   <properties>
-    <jkube.kit.version>${project.version}</jkube.kit.version>
+    <jkube.kit.version>1.16.0</jkube.kit.version>
   </properties>
 
   <modules>
