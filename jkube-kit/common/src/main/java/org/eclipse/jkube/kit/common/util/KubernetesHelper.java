@@ -14,6 +14,7 @@
 package org.eclipse.jkube.kit.common.util;
 
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -390,7 +391,7 @@ public class KubernetesHelper {
             public void run() {
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
                     while (true) {
-                        String line = reader.readLine();
+                        String line = BoundedLineReader.readLine(reader, 5_000_000);
                         if (line == null) {
                             return;
                         }
