@@ -30,7 +30,7 @@
   <description>Gradle plugin for getting your Java apps on to Kubernetes</description>
 
   <properties>
-    <jkube.kit.version>${project.version}</jkube.kit.version>
+    <jkube.kit.version>1.17.0</jkube.kit.version>
   </properties>
 
   <modules>
