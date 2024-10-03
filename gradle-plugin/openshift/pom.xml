@@ -36,7 +36,7 @@
     <description>OpenShift Gradle Plugin</description>
 
     <properties>
-        <jkube.kit.version>${project.version}</jkube.kit.version>
+        <jkube.kit.version>1.16.2</jkube.kit.version>
     </properties>
 
     <dependencies>
