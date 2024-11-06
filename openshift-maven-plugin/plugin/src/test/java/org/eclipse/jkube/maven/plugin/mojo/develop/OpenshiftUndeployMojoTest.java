@@ -14,6 +14,7 @@
 package org.eclipse.jkube.maven.plugin.mojo.develop;
 
 import io.fabric8.openshift.client.OpenShiftClient;
+import java.nio.file.Files;
 import org.eclipse.jkube.kit.config.resource.RuntimeMode;
 import org.eclipse.jkube.kit.config.service.JKubeServiceHub;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,9 +40,9 @@ class OpenshiftUndeployMojoTest {
   @BeforeEach
   void setUp(@TempDir File temporaryFolder) throws IOException {
     mockServiceHub = mock(JKubeServiceHub.class, RETURNS_DEEP_STUBS);
-    kubernetesManifestFile = File.createTempFile("junit", "ext", temporaryFolder);
-    openShiftManifestFile = File.createTempFile("junit", "ext", temporaryFolder);
-    openShiftISManifestFile = File.createTempFile("junit", "ext", temporaryFolder);
+    kubernetesManifestFile = Files.createTempFile(temporaryFolder.toPath(), "junit", "ext").toFile();
+    openShiftManifestFile = Files.createTempFile(temporaryFolder.toPath(), "junit", "ext").toFile();
+    openShiftISManifestFile = Files.createTempFile(temporaryFolder.toPath(), "junit", "ext").toFile();
     // @formatter:off
     undeployMojo = new OpenshiftUndeployMojo() {{
       kubernetesManifest = kubernetesManifestFile;
