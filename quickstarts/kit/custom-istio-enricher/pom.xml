@@ -38,7 +38,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <jkube.version>${project.version}</jkube.version>
-    <istio-client.version>6.8.0</istio-client.version>
+    <istio-client.version>7.0.0</istio-client.version>
   </properties>
 
   <modules>
