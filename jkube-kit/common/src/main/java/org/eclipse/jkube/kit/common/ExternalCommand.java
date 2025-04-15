@@ -13,6 +13,7 @@
  */
 package org.eclipse.jkube.kit.common;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -132,7 +133,7 @@ public abstract class ExternalCommand {
     private void outputStreamPump(final InputStream inputStream) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             for (; ; ) {
-                String line = reader.readLine();
+                String line = BoundedLineReader.readLine(reader, 5_000_000);
                 if (line == null) {
                     break;
                 }
@@ -153,7 +154,7 @@ public abstract class ExternalCommand {
         return executor.submit(() -> {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(errorStream))) {
                 for (; ; ) {
-                    String line = reader.readLine();
+                    String line = BoundedLineReader.readLine(reader, 5_000_000);
                     if (line == null) {
                         break;
                     }
