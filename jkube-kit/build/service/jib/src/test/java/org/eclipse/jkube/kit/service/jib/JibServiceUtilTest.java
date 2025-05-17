@@ -15,6 +15,7 @@ package org.eclipse.jkube.kit.service.jib;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -142,20 +143,20 @@ class JibServiceUtilTest {
             .build());
         final Map<Assembly, List<AssemblyFileEntry>> originalLayers = new LinkedHashMap<>();
         originalLayers.put(Assembly.builder().id("layer-1").build(), Arrays.asList(
-            AssemblyFileEntry.builder().source(File.createTempFile("junit", "ext", temporaryFolder))
+            AssemblyFileEntry.builder().source(Files.createTempFile(temporaryFolder.toPath(), "junit", "ext").toFile())
                 .dest(buildDirs.getOutputDirectory().toPath().resolve("layer-1").resolve("l1.1.txt").toFile()).build(),
-            AssemblyFileEntry.builder().source(File.createTempFile("junit", "ext", temporaryFolder))
+            AssemblyFileEntry.builder().source(Files.createTempFile(temporaryFolder.toPath(), "junit", "ext").toFile())
                 .dest(buildDirs.getOutputDirectory().toPath().resolve("layer-1").resolve("l1.2.txt").toFile()).build()
         ));
         originalLayers.put(Assembly.builder().build(), Arrays.asList(
-            AssemblyFileEntry.builder().source(File.createTempFile("junit", "ext", temporaryFolder))
+            AssemblyFileEntry.builder().source(Files.createTempFile(temporaryFolder.toPath(), "junit", "ext").toFile())
                 .dest(new File(buildDirs.getOutputDirectory(),"l2.1.txt")).build(),
-            AssemblyFileEntry.builder().source(File.createTempFile("junit", "ext", temporaryFolder))
+            AssemblyFileEntry.builder().source(Files.createTempFile(temporaryFolder.toPath(), "junit", "ext").toFile())
                 .dest(new File(buildDirs.getOutputDirectory(),"l2.2.txt")).build()
         ));
         // Creates a denormalized path in JDK 8
         originalLayers.put(Assembly.builder().id("jkube-generated-layer-final-artifact").build(), Collections.singletonList(
-            AssemblyFileEntry.builder().source(File.createTempFile("junit", "ext", temporaryFolder))
+            AssemblyFileEntry.builder().source(Files.createTempFile(temporaryFolder.toPath(), "junit", "ext").toFile())
                     .dest(buildDirs.getOutputDirectory().toPath().resolve("jkube-generated-layer-final-artifact")
                         .resolve("deployments").resolve(".").resolve("edge.case").toFile()).build()
         ));
